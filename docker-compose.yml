@@ -1,0 +1,13 @@
+version: '2'
+services:
+ flume:
+  build: .
+  volumes:
+   - ./delivery-agent.conf:/var/tmp/delivery-agent.conf
+   - /tmp/operaciones:/var/operaciones
+  environment:
+   - FLUME_AGENT_NAME=server
+   - FLUME_CONF_FILE=/var/tmp/delivery-agent.conf
+  command:
+   - ./opt/flume/bin/start-flume.sh
+
