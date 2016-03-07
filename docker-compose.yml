@@ -2,8 +2,6 @@ version: '2'
 services:
  flume:
   build: .
-  ports:
-   - "4000:4000"
   volumes:
    - ./delivery-agent.conf:/var/tmp/delivery-agent.conf
    - /tmp/operaciones:/var/operaciones
@@ -12,6 +10,4 @@ services:
    - FLUME_CONF_FILE=/var/tmp/delivery-agent.conf
   command:
    - ./opt/flume/bin/start-flume.sh
-  expose:
-   - "4000"
 
